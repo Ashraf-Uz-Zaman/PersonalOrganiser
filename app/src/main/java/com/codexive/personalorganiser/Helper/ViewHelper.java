@@ -9,15 +9,17 @@ import com.rbddevs.splashy.Splashy;
 public class ViewHelper {
     public static void SplashScreen(Activity activity){
         new Splashy(activity)         // For JAVA : new Splashy(this)
-                .setLogo(R.drawable.ic_launcher_foreground)
+                .setLogo(R.drawable.img_personal_organizer)
                 .setTitle(R.string.splash_title)
-                .setTitleColor("#FFFFFF")
+                .setTitleSize(18)
+                .setTitleColor(R.color.white)
                 .setSubTitle(R.string.splash_sub_title)
-                .setAnimation(Splashy.Animation.GLOW_LOGO,1000)
+                .setSubTitleSize(13)
+                .setAnimation(Splashy.Animation.GLOW_LOGO,1500)
                 .setProgressColor(R.color.white)
                 .setBackgroundResource(android.R.color.black)
                 .setFullScreen(true)
-                .setDuration(5000)
+                .setDuration(5500)
                 .show();
     }
 }
