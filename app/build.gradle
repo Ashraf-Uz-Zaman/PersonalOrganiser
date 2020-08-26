@@ -74,4 +74,8 @@ dependencies {
     //progress bar
     implementation 'com.kaopiz:kprogresshud:1.2.0'
 
+    //SplashScreen
+    implementation 'com.rbddevs.splashy:splashy:1.3.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+
 }
