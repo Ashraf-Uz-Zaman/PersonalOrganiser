@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Personal Organiser</string>
+
+    <string name="some_error">Some Error Occurred!</string>
+    <string name="splash_title">Personal Organiser</string>
+    <string name="splash_sub_title">Make Life Easier !!</string>
 </resources>
