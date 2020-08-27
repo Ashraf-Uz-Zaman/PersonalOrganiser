@@ -3,4 +3,11 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="appColor">#F12C29A3</color>
+    <color name="colorStartSplash">#F12C29A3</color>
+    <color name="colorCenterSplash">#E6433FC4</color>
+    <color name="colorEndSplash">#AA5550EF</color>
+    <color name="gray">#7e7e7e</color>
+    <color name="black_effective">#2a2a2a</color>
 </resources>
