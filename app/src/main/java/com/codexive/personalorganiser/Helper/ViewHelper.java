@@ -17,7 +17,7 @@ public class ViewHelper {
                 .setSubTitleSize(13)
                 .setAnimation(Splashy.Animation.GLOW_LOGO,1500)
                 .setProgressColor(R.color.white)
-                .setBackgroundResource(android.R.color.black)
+                .setBackgroundResource(R.drawable.style_background_splash)
                 .setFullScreen(true)
                 .setDuration(5500)
                 .show();

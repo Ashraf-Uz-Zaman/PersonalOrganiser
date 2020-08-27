@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_event"
+        android:icon="@drawable/ic_event"
+        android:title="@string/title_event" />
+
+    <item
+        android:id="@+id/navigation_todo"
+        android:icon="@drawable/ic_task"
+        android:title="@string/title_to_do_task" />
+
+    <item
+        android:id="@+id/navigation_friends"
+        android:icon="@drawable/ic_friends"
+        android:title="@string/title_friends" />
+
+    <item
+        android:id="@+id/navigation_gallery"
+        android:icon="@drawable/ic_gallery"
+        android:title="@string/title_gallery" />
+
+</menu>

@@ -4,4 +4,11 @@
     <string name="some_error">Some Error Occurred!</string>
     <string name="splash_title">Personal Organiser</string>
     <string name="splash_sub_title">Make Life Easier !!</string>
+
+    <string name="title_event">Event</string>
+    <string name="title_to_do_task">To-Do</string>
+    <string name="title_friends">Friends</string>
+    <string name="title_gallery">Gallery</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
