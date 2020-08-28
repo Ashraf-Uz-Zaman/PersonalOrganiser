@@ -204,10 +204,11 @@ public class GalleryFragment extends BaseFragment implements GalleryMvpView, Vie
 
         // List all the items within the folder.
         File[] files = new File(directoryPath).listFiles(new ImageFileFilter());
-        for (File file : files) {
-            items.add(file.getAbsolutePath());
+        if(files != null){
+            for (File file : files) {
+                items.add(file.getAbsolutePath());
+            }
         }
-
         return items;
     }
 

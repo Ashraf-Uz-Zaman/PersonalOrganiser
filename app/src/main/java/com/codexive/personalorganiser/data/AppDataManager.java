@@ -1,10 +1,17 @@
 package com.codexive.personalorganiser.data;
 
 import android.content.Context;
+
+import com.codexive.personalorganiser.data.db.models.EventModel;
 import com.codexive.personalorganiser.data.prefs.PreferencesHelper;
 import com.codexive.personalorganiser.di.ApplicationContext;
+
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import io.reactivex.Observable;
 
 
 @Singleton
@@ -153,5 +160,9 @@ public class AppDataManager implements DataManager {
         mPreferencesHelper.setAccessToken(accessToken);
     }
 
-
+//  TODO: DB
+    @Override
+    public Observable<List<EventModel>> getAllEvent() {
+        return null;
+    }
 }
