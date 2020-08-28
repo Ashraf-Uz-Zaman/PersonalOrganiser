@@ -3,6 +3,7 @@ package com.codexive.personalorganiser.di.component;
 
 import com.codexive.personalorganiser.di.PerActivity;
 import com.codexive.personalorganiser.di.module.ActivityModule;
+import com.codexive.personalorganiser.ui.fragment.gallery.GalleryFragment;
 
 import dagger.Component;
 
@@ -13,5 +14,6 @@ public interface ActivityComponent {
 //    void inject(LoginActivity activity);
 
     //    fragment
+    void inject(GalleryFragment fragment);
 
 }

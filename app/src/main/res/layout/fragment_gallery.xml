@@ -3,12 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:id="@+id/fragment_gallery"
     tools:context=".ui.fragment.gallery.GalleryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_gallery"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Gallery" />
+        android:layout_height="match_parent"/>
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatActionButton_Camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_camera"
+        android:backgroundTint="@color/colorAppDefault"
+        android:contentDescription="@string/content_camera"
+        android:layout_margin="@dimen/_15sdp" />
 
 </FrameLayout>
