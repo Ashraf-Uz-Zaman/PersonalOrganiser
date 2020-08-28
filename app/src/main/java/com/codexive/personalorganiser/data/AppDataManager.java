@@ -2,7 +2,10 @@ package com.codexive.personalorganiser.data;
 
 import android.content.Context;
 
+import com.codexive.personalorganiser.data.db.DbHelper;
 import com.codexive.personalorganiser.data.db.models.EventModel;
+import com.codexive.personalorganiser.data.db.models.FriendModel;
+import com.codexive.personalorganiser.data.db.models.ToDoModel;
 import com.codexive.personalorganiser.data.prefs.PreferencesHelper;
 import com.codexive.personalorganiser.di.ApplicationContext;
 
@@ -21,12 +24,14 @@ public class AppDataManager implements DataManager {
 
     private final Context mContext;
     private final PreferencesHelper mPreferencesHelper;
+    private final DbHelper mDbHelper;
 
     @Inject
     public AppDataManager(@ApplicationContext Context context,
-                          PreferencesHelper preferencesHelper) {
+                          PreferencesHelper preferencesHelper,DbHelper dbHelper) {
         mContext = context;
         mPreferencesHelper = preferencesHelper;
+        mDbHelper = dbHelper;
     }
     @Override
     public void setUserAsLoggedOut() {
@@ -163,6 +168,91 @@ public class AppDataManager implements DataManager {
 //  TODO: DB
     @Override
     public Observable<List<EventModel>> getAllEvent() {
-        return null;
+        return mDbHelper.getAllEvent();
+    }
+
+    @Override
+    public Observable<Boolean> saveEvent(EventModel eventModel) {
+        return mDbHelper.saveEvent(eventModel);
+    }
+
+    @Override
+    public Observable<Boolean> saveEventList(List<EventModel> eventModelList) {
+        return mDbHelper.saveEventList(eventModelList);
+    }
+
+    @Override
+    public Observable<Boolean> updateEventList(List<EventModel> eventModelList) {
+        return mDbHelper.updateEventList(eventModelList);
+    }
+
+    @Override
+    public Observable<Boolean> updateEvent(EventModel eventModel) {
+        return mDbHelper.updateEvent(eventModel);
+    }
+
+    @Override
+    public Observable<Boolean> deleteAll() {
+        return mDbHelper.deleteAll();
+    }
+
+    @Override
+    public Observable<List<FriendModel>> getAllFriend() {
+        return mDbHelper.getAllFriend();
+    }
+
+    @Override
+    public Observable<Boolean> saveFriend(FriendModel friendModel) {
+        return mDbHelper.saveFriend(friendModel);
+    }
+
+    @Override
+    public Observable<Boolean> saveFriendList(List<FriendModel> friendModelList) {
+        return mDbHelper.saveFriendList(friendModelList);
+    }
+
+    @Override
+    public Observable<Boolean> updateFriendList(List<FriendModel> friendModelList) {
+        return mDbHelper.updateFriendList(friendModelList);
+    }
+
+    @Override
+    public Observable<Boolean> updateFriend(FriendModel friendModel) {
+        return mDbHelper.updateFriend(friendModel);
+    }
+
+    @Override
+    public Observable<Boolean> deleteAllFriend() {
+        return mDbHelper.deleteAllFriend();
+    }
+
+    @Override
+    public Observable<List<ToDoModel>> getAllToDoModel() {
+        return mDbHelper.getAllToDoModel();
+    }
+
+    @Override
+    public Observable<Boolean> saveToDoModel(ToDoModel toDoModel) {
+        return mDbHelper.saveToDoModel(toDoModel);
+    }
+
+    @Override
+    public Observable<Boolean> saveToDoModelList(List<ToDoModel> toDoModelList) {
+        return mDbHelper.saveToDoModelList(toDoModelList);
+    }
+
+    @Override
+    public Observable<Boolean> updateToDoModelList(List<ToDoModel> toDoModelList) {
+        return mDbHelper.updateToDoModelList(toDoModelList);
+    }
+
+    @Override
+    public Observable<Boolean> updateToDoModel(ToDoModel toDoModel) {
+        return mDbHelper.updateToDoModel(toDoModel);
+    }
+
+    @Override
+    public Observable<Boolean> deleteAllToDoModel() {
+        return mDbHelper.deleteAllToDoModel();
     }
 }
