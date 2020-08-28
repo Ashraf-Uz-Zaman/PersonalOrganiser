@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 29
@@ -19,6 +20,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -81,5 +86,8 @@ dependencies {
 
     // Gallery
     implementation 'com.veinhorn.scrollgalleryview:library:1.2.6'
+
+    //Green Dao
+    implementation "org.greenrobot:greendao:$rootProject.greenDaoVersion"
 
 }
