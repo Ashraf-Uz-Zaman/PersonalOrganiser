@@ -7,6 +7,8 @@ import android.content.Context;
 import com.codexive.personalorganiser.R;
 import com.codexive.personalorganiser.data.AppDataManager;
 import com.codexive.personalorganiser.data.DataManager;
+import com.codexive.personalorganiser.data.db.AppDbHelper;
+import com.codexive.personalorganiser.data.db.DbHelper;
 import com.codexive.personalorganiser.data.prefs.AppPreferencesHelper;
 import com.codexive.personalorganiser.data.prefs.PreferencesHelper;
 import com.codexive.personalorganiser.di.ApplicationContext;
@@ -74,9 +76,9 @@ public class ApplicationModule {
         return AppConstants.DB_NAME;
     }
 
-//    @Provides
-//    @Singleton
-//    DbHelper provideDbHelper(AppDbHelper appDbHelper) {
-//        return appDbHelper;
-//    }
+    @Provides
+    @Singleton
+    DbHelper provideDbHelper(AppDbHelper appDbHelper) {
+        return appDbHelper;
+    }
 }
