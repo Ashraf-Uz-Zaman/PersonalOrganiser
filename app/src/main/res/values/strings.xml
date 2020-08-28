@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Personal Organiser</string>
+    <string name="storage_name">Personal_Organiser</string>
 
     <string name="some_error">Some Error Occurred!</string>
     <string name="splash_title">Personal Organiser</string>
@@ -9,6 +10,17 @@
     <string name="title_to_do_task">To-Do</string>
     <string name="title_friends">Friends</string>
     <string name="title_gallery">Gallery</string>
+
+
+    <string name="content_camera">Camera icon</string>
+
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="cancel">Cancel</string>
+    <string name="choose_your_picture">Choose your picture</string>
+    <string name="saving">Saving. . .</string>
+    <string name="stored">Stored!</string>
+    <string name="error_stored">Can\'t Storing</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

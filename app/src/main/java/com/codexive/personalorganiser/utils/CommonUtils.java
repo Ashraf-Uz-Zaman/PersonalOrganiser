@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.Settings;
 
+import com.codexive.personalorganiser.R;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.text.SimpleDateFormat;
@@ -14,6 +15,8 @@ import java.util.regex.Pattern;
 
 public class CommonUtils {
     private static final String TAG = "CommonUtils";
+
+    public static String galleryDirectory = "/sdcard/Personal_Organiser/image";
 
     private CommonUtils() {
         // This utility class is not publicly instantiable

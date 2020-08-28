@@ -79,4 +79,7 @@ dependencies {
     implementation 'com.rbddevs.splashy:splashy:1.3.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
 
+    // Gallery
+    implementation 'com.veinhorn.scrollgalleryview:library:1.2.6'
+
 }

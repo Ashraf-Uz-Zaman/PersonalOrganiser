@@ -4,7 +4,15 @@ import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.codexive.personalorganiser.adapter.GalleryAdapter;
 import com.codexive.personalorganiser.di.ActivityContext;
+import com.codexive.personalorganiser.di.PerActivity;
+import com.codexive.personalorganiser.ui.fragment.gallery.GalleryMvpPresenter;
+import com.codexive.personalorganiser.ui.fragment.gallery.GalleryMvpView;
+import com.codexive.personalorganiser.ui.fragment.gallery.GalleryPresenter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import dagger.Module;
 import dagger.Provides;
@@ -34,6 +42,13 @@ public class ActivityModule {
         return new CompositeDisposable();
     }
 
+//    TODO: Presenter
+
+    @Provides
+    GalleryMvpPresenter<GalleryMvpView> provideGalleryMpvPresenter(
+            GalleryPresenter<GalleryMvpView> presenter) {
+        return presenter;
+    }
 
     // Presenter Activity
 //    @Provides
@@ -44,12 +59,11 @@ public class ActivityModule {
 //    }
 
 
-    // Adapter
+//     TODO: Adapter
 
-//    @Provides
-//    HomeSlideAdapter provideHomeSlideAdapter() {
-//        return new HomeSlideAdapter(mActivity, new HomeResponse());
-//    }
-
+    @Provides
+    GalleryAdapter provideGalleryAdapter() {
+        return new GalleryAdapter(mActivity, new ArrayList<String>());
+    }
 
 }
