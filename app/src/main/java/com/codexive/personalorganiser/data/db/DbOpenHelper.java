@@ -2,11 +2,11 @@ package com.codexive.personalorganiser.data.db;
 
 import android.content.Context;
 
-import androidx.room.Database;
-
 import com.codexive.personalorganiser.data.db.models.DaoMaster;
 import com.codexive.personalorganiser.di.ApplicationContext;
 import com.codexive.personalorganiser.di.DatabaseInfo;
+
+import org.greenrobot.greendao.database.Database;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
