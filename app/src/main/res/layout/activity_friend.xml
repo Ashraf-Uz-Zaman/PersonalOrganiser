@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.friend.FriendActivity">
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_friend"
+        android:layout_below="@id/toolbar_layout">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/style_curve_lower_item">
+
+                <ImageView
+                    android:id="@+id/iv_friend"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_170sdp"
+                    android:padding="2dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_friend" />
+
+                <LinearLayout
+                    android:id="@+id/ll_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_friend"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_10sdp">
+
+                    <View
+                        style="@style/lineView"
+                        android:background="@color/light_gray" />
+
+
+                    <LinearLayout style="@style/FriendLinearLayout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_name" />
+
+                        <EditText
+                            android:id="@+id/et_firstname"
+                            style="@style/FriendEditText"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/hints_first_name"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/lineView"
+                        android:background="@color/light_gray" />
+
+                    <LinearLayout style="@style/FriendLinearLayout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_name" />
+
+                        <EditText
+                            android:id="@+id/et_lastname"
+                            style="@style/FriendEditText"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/hints_last_name"
+                            android:inputType="textEmailAddress|textNoSuggestions"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/lineView"
+                        android:background="@color/light_gray" />
+
+
+                    <LinearLayout style="@style/FriendLinearLayout">
+
+                        <RadioGroup
+                            android:id="@+id/radioGrp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/radioMale"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:layout_marginEnd="@dimen/_80sdp"
+                                android:layout_weight="1"
+                                android:buttonTint="@color/appColor"
+                                android:checked="true"
+                                android:drawableRight="@drawable/ic_male"
+                                android:text="Male"
+                                android:textSize="@dimen/_12ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioFemale"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:buttonTint="@color/appColor"
+                                android:checked="false"
+                                android:drawableRight="@drawable/ic_female"
+                                android:text="Female"
+                                android:textSize="@dimen/_12ssp" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/lineView"
+                        android:background="@color/light_gray" />
+
+                    <LinearLayout style="@style/FriendLinearLayout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_age" />
+
+                        <EditText
+                            android:id="@+id/et_age"
+                            style="@style/FriendEditText"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/hints_age"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+
+                    <View
+                        style="@style/lineView"
+                        android:background="@color/light_gray" />
+
+
+                    <LinearLayout style="@style/FriendLinearLayout">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_address" />
+
+                        <EditText
+                            android:id="@+id/et_address"
+                            style="@style/FriendEditText"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/hints_address"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/appColor"
+        android:text="@string/button_save"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_16sdp" />
+
+
+</RelativeLayout>

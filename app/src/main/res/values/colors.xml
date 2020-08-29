@@ -14,4 +14,7 @@
 
     <color name="colorAppDefault">#AA2C29A3</color>
     <color name="bg_color">#f7f7f7</color>
+    <color name="light_gray">#dbdbdb</color>
+    <color name="semi_gray">#979797</color>
+
 </resources>

@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <!-- TODO: Update blank fragment layout -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatActionButton_Camera"
         android:layout_width="wrap_content"
