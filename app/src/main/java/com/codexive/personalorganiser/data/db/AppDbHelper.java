@@ -80,6 +80,28 @@ public class AppDbHelper implements DbHelper {
     }
 
     @Override
+    public Observable<Boolean> deleteList(List<EventModel> eventModelList) {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                mDaoSession.getEventModelDao().deleteInTx(eventModelList);
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public Observable<Boolean> delete(EventModel eventModel) {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                mDaoSession.getEventModelDao().delete(eventModel);
+                return true;
+            }
+        });
+    }
+
+    @Override
     public Observable<Boolean> deleteAll() {
         return Observable.fromCallable(new Callable<Boolean>() {
             @Override
@@ -146,6 +168,28 @@ public class AppDbHelper implements DbHelper {
     }
 
     @Override
+    public Observable<Boolean> deleteFriendList(List<FriendModel> friendModelList) {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                mDaoSession.getFriendModelDao().deleteInTx(friendModelList);
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public Observable<Boolean> deleteFriend(FriendModel friendModel) {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                mDaoSession.getFriendModelDao().delete(friendModel);
+                return true;
+            }
+        });
+    }
+
+    @Override
     public Observable<Boolean> deleteAllFriend() {
         return Observable.fromCallable(new Callable<Boolean>() {
             @Override
@@ -206,6 +250,28 @@ public class AppDbHelper implements DbHelper {
             @Override
             public Boolean call() throws Exception {
                 mDaoSession.getToDoModelDao().update(toDoModel);
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public Observable<Boolean> deleteTOdoList(List<ToDoModel> toDoModelList) {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                mDaoSession.getToDoModelDao().deleteInTx(toDoModelList);
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public Observable<Boolean> deleteTOdo(ToDoModel toDoModel) {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                mDaoSession.getToDoModelDao().delete(toDoModel);
                 return true;
             }
         });

@@ -192,6 +192,16 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public Observable<Boolean> deleteList(List<EventModel> eventModelList) {
+        return mDbHelper.deleteList(eventModelList);
+    }
+
+    @Override
+    public Observable<Boolean> delete(EventModel eventModel) {
+        return mDbHelper.delete(eventModel);
+    }
+
+    @Override
     public Observable<Boolean> deleteAll() {
         return mDbHelper.deleteAll();
     }
@@ -222,6 +232,16 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public Observable<Boolean> deleteFriendList(List<FriendModel> friendModelList) {
+        return mDbHelper.deleteFriendList(friendModelList);
+    }
+
+    @Override
+    public Observable<Boolean> deleteFriend(FriendModel friendModel) {
+        return mDbHelper.deleteFriend(friendModel);
+    }
+
+    @Override
     public Observable<Boolean> deleteAllFriend() {
         return mDbHelper.deleteAllFriend();
     }
@@ -249,6 +269,16 @@ public class AppDataManager implements DataManager {
     @Override
     public Observable<Boolean> updateToDoModel(ToDoModel toDoModel) {
         return mDbHelper.updateToDoModel(toDoModel);
+    }
+
+    @Override
+    public Observable<Boolean> deleteTOdoList(List<ToDoModel> toDoModelList) {
+        return mDbHelper.deleteTOdoList(toDoModelList);
+    }
+
+    @Override
+    public Observable<Boolean> deleteTOdo(ToDoModel toDoModel) {
+        return deleteTOdo(toDoModel);
     }
 
     @Override
