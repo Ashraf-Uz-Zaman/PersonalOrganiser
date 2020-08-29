@@ -20,6 +20,10 @@ public interface DbHelper {
 
     Observable<Boolean> updateEvent(EventModel eventModel);
 
+    Observable<Boolean> deleteList(List<EventModel> eventModelList);
+
+    Observable<Boolean> delete(EventModel eventModel);
+
     Observable<Boolean> deleteAll();
 
     //  TODO:- Friend
@@ -32,6 +36,10 @@ public interface DbHelper {
     Observable<Boolean> updateFriendList(List<FriendModel> friendModelList);
 
     Observable<Boolean> updateFriend(FriendModel friendModel);
+
+    Observable<Boolean> deleteFriendList(List<FriendModel> friendModelList);
+
+    Observable<Boolean> deleteFriend(FriendModel friendModel);
 
     Observable<Boolean> deleteAllFriend();
 
@@ -46,6 +54,10 @@ public interface DbHelper {
     Observable<Boolean> updateToDoModelList(List<ToDoModel> toDoModelList);
 
     Observable<Boolean> updateToDoModel(ToDoModel toDoModel);
+
+    Observable<Boolean> deleteTOdoList(List<ToDoModel> toDoModelList);
+
+    Observable<Boolean> deleteTOdo(ToDoModel toDoModel);
 
     Observable<Boolean> deleteAllToDoModel();
 }
