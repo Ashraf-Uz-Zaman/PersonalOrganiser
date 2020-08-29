@@ -4,9 +4,17 @@ import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.codexive.personalorganiser.adapter.FriendsAdapter;
 import com.codexive.personalorganiser.adapter.GalleryAdapter;
+import com.codexive.personalorganiser.data.db.models.FriendModel;
 import com.codexive.personalorganiser.di.ActivityContext;
 import com.codexive.personalorganiser.di.PerActivity;
+import com.codexive.personalorganiser.ui.activity.friend.FriendMvpPresenter;
+import com.codexive.personalorganiser.ui.activity.friend.FriendMvpView;
+import com.codexive.personalorganiser.ui.activity.friend.FriendPresenter;
+import com.codexive.personalorganiser.ui.fragment.friend.FriendsMvpPresenter;
+import com.codexive.personalorganiser.ui.fragment.friend.FriendsMvpView;
+import com.codexive.personalorganiser.ui.fragment.friend.FriendsPresenter;
 import com.codexive.personalorganiser.ui.fragment.gallery.GalleryMvpPresenter;
 import com.codexive.personalorganiser.ui.fragment.gallery.GalleryMvpView;
 import com.codexive.personalorganiser.ui.fragment.gallery.GalleryPresenter;
@@ -50,6 +58,17 @@ public class ActivityModule {
         return presenter;
     }
 
+    @Provides
+    FriendMvpPresenter<FriendMvpView> provideFriendMpvPresenter(
+            FriendPresenter<FriendMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    FriendsMvpPresenter<FriendsMvpView> provideFriendsMpvPresenter(
+            FriendsPresenter<FriendsMvpView> presenter) {
+        return presenter;
+    }
     // Presenter Activity
 //    @Provides
 //    @PerActivity
@@ -64,6 +83,11 @@ public class ActivityModule {
     @Provides
     GalleryAdapter provideGalleryAdapter() {
         return new GalleryAdapter(mActivity, new ArrayList<String>());
+    }
+
+    @Provides
+    FriendsAdapter provideFriendsAdapter() {
+        return new FriendsAdapter(mActivity, new ArrayList<FriendModel>());
     }
 
 }

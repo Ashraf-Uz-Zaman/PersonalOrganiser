@@ -89,13 +89,13 @@ public class GalleryFragment extends BaseFragment implements GalleryMvpView, Vie
 
     @Override
     protected void setUp(View view) {
-        floatActionButtonCamera.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Log.e("sdfsdfsadf", "Longpress detected");
-                return false;
-            }
-        });
+//        floatActionButtonCamera.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Log.e("sdfsdfsadf", "Longpress detected");
+//                return false;
+//            }
+//        });
         pathFile = "/sdcard/" + getString(R.string.storage_name) + "/" + "image";
         rvGallery.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         rvGallery.addItemDecoration(new RecyclerViewGriditemDecoration(10, 10, 10, 10));

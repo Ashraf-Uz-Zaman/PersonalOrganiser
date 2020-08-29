@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="@dimen/_80sdp"
+    android:background="@drawable/style_curve_item">
+
+    <ImageView
+        android:id="@+id/iv_agreement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_agreement"
+        android:padding="@dimen/_10sdp"/>
+    <View
+        android:id="@+id/view"
+        android:layout_width="1sp"
+        android:layout_toRightOf="@id/iv_agreement"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray"/>
+
+    <LinearLayout
+        android:layout_toRightOf="@id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="@dimen/_3sdp"/>
+        <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="@dimen/_3sdp"/>
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</RelativeLayout>
