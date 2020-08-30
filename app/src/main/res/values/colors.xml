@@ -16,5 +16,6 @@
     <color name="bg_color">#f7f7f7</color>
     <color name="light_gray">#dbdbdb</color>
     <color name="semi_gray">#979797</color>
+    <color name="red">#F60000</color>
 
 </resources>

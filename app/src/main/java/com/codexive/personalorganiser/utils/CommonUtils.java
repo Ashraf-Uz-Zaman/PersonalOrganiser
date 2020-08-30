@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class CommonUtils {
     private static final String TAG = "CommonUtils";
 
-    public static String galleryDirectory = "/sdcard/Personal_Organiser/image";
+    public static String galleryDirectory = "/PersonalOrganiser";
 
     private CommonUtils() {
         // This utility class is not publicly instantiable

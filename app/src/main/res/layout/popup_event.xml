@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_260sdp"
+    android:layout_height="@dimen/_250sdp"
+    android:layout_gravity="center"
+    android:background="@drawable/style_curve_item"
+    android:minWidth="@dimen/_260sdp"
+    android:minHeight="@dimen/_250sdp"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/lobster"
+        android:text="Add Event"
+        android:textColor="@color/appColor"
+        android:textSize="@dimen/_14sdp" />
+
+
+
+    <EditText
+        android:id="@+id/et_dialog_taskname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:hint="Event Name"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_12ssp" />
+
+    <EditText
+        android:id="@+id/et_dialog_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:hint="Location"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/et_event_date"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:hint="Date"
+        android:paddingStart="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:background="@drawable/style_curve_item"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/et_event_time"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/_10sdp"
+        android:background="@drawable/style_curve_item"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:hint="Time"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_12ssp" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:background="@drawable/style_curve_add"
+            android:text="Add"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_14sdp" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:background="@drawable/style_curve_cancel"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_14sdp" />
+    </LinearLayout>
+
+</LinearLayout>

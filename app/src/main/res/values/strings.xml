@@ -22,7 +22,8 @@
     <string name="saving">Saving. . .</string>
     <string name="updating">Updating. . .</string>
     <string name="loading">Loading. . .</string>
-    <string name="deleting">Delating. . .</string>
+    <string name="deleting">Deleting. . .</string>
+    <string name="delete">Delete</string>
     <string name="stored">Stored!</string>
     <string name="updated">Updated!</string>
     <string name="Deleted">Deleted!</string>

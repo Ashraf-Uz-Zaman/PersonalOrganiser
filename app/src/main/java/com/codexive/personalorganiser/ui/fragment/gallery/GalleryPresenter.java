@@ -1,7 +1,13 @@
 package com.codexive.personalorganiser.ui.fragment.gallery;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.codexive.personalorganiser.R;
 import com.codexive.personalorganiser.data.DataManager;
@@ -23,16 +29,15 @@ public class GalleryPresenter <V extends GalleryMvpView> extends BasePresenter<V
     }
 
     @Override
-    public void onStoreImage(Bitmap bitmap) {
+    public void onStoreImage(Bitmap bitmap, Context context) {
         getMvpView().showLoading(getMvpView().getContext().getString(R.string.saving));
-        File direct = new File(Environment.getExternalStorageDirectory() + "/" + getMvpView().getContext().getString(R.string.storage_name) + "/" + "image");
-
-        if (!direct.exists()) {
-            File imageDirectory = new File(CommonUtils.galleryDirectory);
-            imageDirectory.mkdirs();
+        File fileFolder = new File(Environment.getExternalStorageDirectory()+ CommonUtils.galleryDirectory);
+        boolean success = true;
+        if(!fileFolder.exists()) {
+            fileFolder.mkdir();
         }
 
-        File file = new File(new File(CommonUtils.galleryDirectory), System.currentTimeMillis() + ".jpg");
+        File file = new File(new File(Environment.getExternalStorageDirectory()+ CommonUtils.galleryDirectory), System.currentTimeMillis() + ".jpg");
         if (file.exists()) {
             file.delete();
         }
@@ -45,6 +50,7 @@ public class GalleryPresenter <V extends GalleryMvpView> extends BasePresenter<V
             getMvpView().sucessToStore(getMvpView().getContext().getString(R.string.stored));
         } catch (Exception e) {
             getMvpView().hideLoading();
+            Log.e("DATALINK", "onStoreImage: "+e.getMessage() );
             getMvpView().unSucessToStore(getMvpView().getContext().getString(R.string.error_stored));
             e.printStackTrace();
         }

@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -16,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -96,11 +98,28 @@ public class GalleryFragment extends BaseFragment implements GalleryMvpView, Vie
 //                return false;
 //            }
 //        });
-        pathFile = "/sdcard/" + getString(R.string.storage_name) + "/" + "image";
+
+        File file = new File(Environment.getExternalStorageDirectory()+ CommonUtils.galleryDirectory);
+        boolean success = true;
+        if(!file.exists()) {
+            file.mkdir();
+            Toast.makeText(getContext(),"Directory does not exist, create it",
+                    Toast.LENGTH_LONG).show();
+        }
+        if(success) {
+            Toast.makeText(getContext(),"Directory created",
+                    Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(getContext(),"Failed to create Directory",
+                    Toast.LENGTH_LONG).show();
+        }
+
+        pathFile = Environment.getExternalStorageDirectory()+ CommonUtils.galleryDirectory;
         rvGallery.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         rvGallery.addItemDecoration(new RecyclerViewGriditemDecoration(10, 10, 10, 10));
         rvGallery.setAdapter(galleryAdapter);
-        galleryAdapter.setData(imageItems(CommonUtils.galleryDirectory));
+        galleryAdapter.setData(imageItems(pathFile));
     }
 
     @Override
@@ -125,7 +144,8 @@ public class GalleryFragment extends BaseFragment implements GalleryMvpView, Vie
     private void requestMultiplePermission() {
         Dexter.withContext(getContext()).withPermissions(
                 Manifest.permission.CAMERA,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(new MultiplePermissionsListener() {
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
@@ -178,7 +198,7 @@ public class GalleryFragment extends BaseFragment implements GalleryMvpView, Vie
                 case REQUEST_CODE_CAMERA:
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-                        mPresenter.onStoreImage(bitmap);
+                        mPresenter.onStoreImage(bitmap,getContext());
                     }
                     break;
                 case REQUEST_CODE_GALLERY:
@@ -188,7 +208,7 @@ public class GalleryFragment extends BaseFragment implements GalleryMvpView, Vie
                             InputStream imageStream;
                             imageStream = getContext().getContentResolver().openInputStream(selectedImage);
                             Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                            mPresenter.onStoreImage(bitmap);
+                            mPresenter.onStoreImage(bitmap,getContext());
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
@@ -221,7 +241,7 @@ public class GalleryFragment extends BaseFragment implements GalleryMvpView, Vie
     @Override
     public void sucessToStore(String message) {
         showMessage(message);
-        galleryAdapter.setData(imageItems(CommonUtils.galleryDirectory));
+        galleryAdapter.setData(imageItems(pathFile));
     }
 
     @Override
