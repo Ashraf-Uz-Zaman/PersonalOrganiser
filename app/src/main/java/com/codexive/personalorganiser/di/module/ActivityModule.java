@@ -6,21 +6,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.codexive.personalorganiser.adapter.FriendsAdapter;
 import com.codexive.personalorganiser.adapter.GalleryAdapter;
+import com.codexive.personalorganiser.adapter.ToDoCompleteAdapter;
+import com.codexive.personalorganiser.adapter.ToDoNotCompleteAdapter;
 import com.codexive.personalorganiser.data.db.models.FriendModel;
+import com.codexive.personalorganiser.data.db.models.ToDoCompleteModel;
+import com.codexive.personalorganiser.data.db.models.ToDoNotCompleteModel;
 import com.codexive.personalorganiser.di.ActivityContext;
-import com.codexive.personalorganiser.di.PerActivity;
 import com.codexive.personalorganiser.ui.activity.friend.FriendMvpPresenter;
 import com.codexive.personalorganiser.ui.activity.friend.FriendMvpView;
 import com.codexive.personalorganiser.ui.activity.friend.FriendPresenter;
+import com.codexive.personalorganiser.ui.activity.todo.ToDosMvpPresenter;
+import com.codexive.personalorganiser.ui.activity.todo.ToDosMvpView;
+import com.codexive.personalorganiser.ui.activity.todo.ToDosPresenter;
 import com.codexive.personalorganiser.ui.fragment.friend.FriendsMvpPresenter;
 import com.codexive.personalorganiser.ui.fragment.friend.FriendsMvpView;
 import com.codexive.personalorganiser.ui.fragment.friend.FriendsPresenter;
 import com.codexive.personalorganiser.ui.fragment.gallery.GalleryMvpPresenter;
 import com.codexive.personalorganiser.ui.fragment.gallery.GalleryMvpView;
 import com.codexive.personalorganiser.ui.fragment.gallery.GalleryPresenter;
+import com.codexive.personalorganiser.ui.fragment.todo.ToDoMvpPresenter;
+import com.codexive.personalorganiser.ui.fragment.todo.ToDoMvpView;
+import com.codexive.personalorganiser.ui.fragment.todo.ToDoPresenter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import dagger.Module;
 import dagger.Provides;
@@ -69,6 +77,17 @@ public class ActivityModule {
             FriendsPresenter<FriendsMvpView> presenter) {
         return presenter;
     }
+
+    @Provides
+    ToDoMvpPresenter<ToDoMvpView> provideToDoMpvPresenter(
+            ToDoPresenter<ToDoMvpView> presenter) {
+        return presenter;
+    }
+    @Provides
+    ToDosMvpPresenter<ToDosMvpView> provideToDosMpvPresenter(
+            ToDosPresenter<ToDosMvpView> presenter) {
+        return presenter;
+    }
     // Presenter Activity
 //    @Provides
 //    @PerActivity
@@ -88,6 +107,17 @@ public class ActivityModule {
     @Provides
     FriendsAdapter provideFriendsAdapter() {
         return new FriendsAdapter(mActivity, new ArrayList<FriendModel>());
+    }
+
+
+    @Provides
+    ToDoNotCompleteAdapter provideToDoNotCompleteAdapter() {
+        return new ToDoNotCompleteAdapter(mActivity, new ArrayList<ToDoNotCompleteModel>());
+    }
+
+    @Provides
+    ToDoCompleteAdapter provideToDoCompleteAdapter() {
+        return new ToDoCompleteAdapter(mActivity, new ArrayList<ToDoCompleteModel>());
     }
 
 }

@@ -63,8 +63,18 @@ public class FriendActivity extends BaseActivity implements FriendMvpView, Radio
     RelativeLayout relativeLayoutProfile;
     @BindView(R.id.btn_friend)
     Button btnFriend;
+    @BindView(R.id.btn_update)
+    Button btnUpdate;
+    @BindView(R.id.btn_delete)
+    Button btnDelete;
+    @BindView(R.id.layout_update_delete)
+    LinearLayout layoutUpdateDelete;
+    @BindView(R.id.btn_layout)
+    LinearLayout btnLayout;
 
-    String gender = "";
+    String gender = "Male";
+    String condition = "";
+    long id = 0;
 
 
 
@@ -80,6 +90,7 @@ public class FriendActivity extends BaseActivity implements FriendMvpView, Radio
         ButterKnife.bind(this);
         getActivityComponent().inject(this);
         mPresenter.onAttach(this);
+        condition = getIntent().getStringExtra("condition");
         setUp();
     }
 
@@ -90,6 +101,24 @@ public class FriendActivity extends BaseActivity implements FriendMvpView, Radio
         toolbarTitle.setText("Friend Information");
         toolbarTitle.setVisibility(View.VISIBLE);
         imgBack.setVisibility(View.VISIBLE);
+        if (condition.equals(getString(R.string.saving))) {
+            layoutUpdateDelete.setVisibility(View.GONE);
+            btnFriend.setVisibility(View.VISIBLE);
+
+        } else if (condition.equals(getString(R.string.updated))) {
+            layoutUpdateDelete.setVisibility(View.VISIBLE);
+            btnFriend.setVisibility(View.GONE);
+            etFirstname.setText(getIntent().getStringExtra("firstname"));
+            etLastname.setText(getIntent().getStringExtra("lastname"));
+            etAddress.setText(getIntent().getStringExtra("location"));
+            etAge.setText(getIntent().getStringExtra("age"));
+            if ("Male".equals(getIntent().getStringExtra("gender"))) {
+                radioMale.toggle();
+            } else if ("Female".equals(getIntent().getStringExtra("gender"))) {
+                radioFemale.toggle();
+            }
+            id = getIntent().getLongExtra("id", 0);
+        }
     }
 
     @Override
@@ -104,14 +133,32 @@ public class FriendActivity extends BaseActivity implements FriendMvpView, Radio
         }
     }
 
-    @OnClick({R.id.img_back, R.id.btn_friend})
+    @OnClick({R.id.img_back, R.id.btn_friend,R.id.btn_update,R.id.btn_delete})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.img_back:
                 onBackPressed();
                 break;
             case R.id.btn_friend:
-                mPresenter.onStoreData(etFirstname.getText().toString(), etLastname.getText().toString(), gender, etAge.getText().toString(), etAddress.getText().toString());
+                if(emptyStringCheck(etFirstname.getText().toString()) && emptyStringCheck(etLastname.getText().toString())&& emptyStringCheck(etAge.getText().toString())&& emptyStringCheck(etAddress.getText().toString())) {
+                    mPresenter.onStoreData(etFirstname.getText().toString(), etLastname.getText().toString(), gender, etAge.getText().toString(), etAddress.getText().toString());
+                }else {
+                    onError("Field should not be empty !");
+                }
+                break;
+            case R.id.btn_delete:
+                if(emptyStringCheck(etFirstname.getText().toString()) && emptyStringCheck(etLastname.getText().toString())&& emptyStringCheck(etAge.getText().toString())&& emptyStringCheck(etAddress.getText().toString())) {
+                    mPresenter.onDeleteData(id, etFirstname.getText().toString(), etLastname.getText().toString(), gender, etAge.getText().toString(), etAddress.getText().toString());
+                }else {
+                    onError("Data changed. Do you want to update ?!");
+                }
+                break;
+            case R.id.btn_update:
+                if(emptyStringCheck(etFirstname.getText().toString()) && emptyStringCheck(etLastname.getText().toString())&& emptyStringCheck(etAge.getText().toString())&& emptyStringCheck(etAddress.getText().toString())) {
+                    mPresenter.onUpdateData(id, etFirstname.getText().toString(), etLastname.getText().toString(), gender, etAge.getText().toString(), etAddress.getText().toString());
+                }else {
+                    onError("Field should not be empty !");
+                }
                 break;
         }
     }
@@ -125,6 +172,34 @@ public class FriendActivity extends BaseActivity implements FriendMvpView, Radio
     public void unSucessToStore(String mes) {
         showMessage(mes);
     }
+
+    @Override
+    public void sucessToUpdate(String mes) {
+        showMessage(mes);
+    }
+
+    @Override
+    public void unSucessToUpdate(String mes) {
+        showMessage(mes);
+    }
+
+    @Override
+    public void sucessToDelete(String mes) {
+        showMessage(mes);
+        onBackPressed();
+    }
+
+    @Override
+    public void unSucessToDelete(String mes) {
+        showMessage(mes);
+    }
+
+    private boolean emptyStringCheck(String error) {
+        if (error == null || error.equals("null") || error.equals("")) {
+            return false;
+        } else return true;
+    }
+
 
 
 }

@@ -216,7 +216,7 @@ public class AppDbHelper implements DbHelper {
         return Observable.fromCallable(new Callable<Boolean>() {
             @Override
             public Boolean call() throws Exception {
-                mDaoSession.getToDoModelDao().save(toDoModel);
+                mDaoSession.getToDoModelDao().insert(toDoModel);
                 return true;
             }
         });

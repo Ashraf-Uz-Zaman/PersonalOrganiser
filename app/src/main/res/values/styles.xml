@@ -54,4 +54,5 @@
         <item name="android:layout_marginStart">@dimen/_10ssp</item>
         <item name="android:inputType">text|textNoSuggestions</item>
     </style>
+
 </resources>
