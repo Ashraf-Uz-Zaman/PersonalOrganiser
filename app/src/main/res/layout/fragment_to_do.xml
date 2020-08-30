@@ -5,10 +5,54 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.todo.ToDoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="To Do" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Completed"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_todo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_155sdp"
+
+            android:layout_marginTop="@dimen/_5sdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Not completed"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_todo_not"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_155sdp"
+            android:layout_marginTop="@dimen/_5sdp"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatActionButton_todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/_15sdp"
+        android:backgroundTint="@color/colorAppDefault"
+        android:contentDescription="@string/content_friend"
+        android:src="@drawable/ic_todo_add" />
 
 </FrameLayout>

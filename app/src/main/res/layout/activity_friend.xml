@@ -14,7 +14,7 @@
         android:id="@+id/rl_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btn_friend"
+        android:layout_above="@+id/btn_layout"
         android:layout_below="@id/toolbar_layout">
 
         <androidx.core.widget.NestedScrollView
@@ -173,16 +173,51 @@
         </androidx.core.widget.NestedScrollView>
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_friend"
+    <LinearLayout
+        android:id="@+id/btn_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/appColor"
-        android:text="@string/button_save"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/_16sdp" />
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_friend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/appColor"
+            android:text="@string/button_save"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_16sdp" />
+        <LinearLayout
+            android:id="@+id/layout_update_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@color/appColor"
+                android:text="@string/button_update"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_16sdp" />
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_dark"
+                android:text="@string/button_delete"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_16sdp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
 
 
 </RelativeLayout>

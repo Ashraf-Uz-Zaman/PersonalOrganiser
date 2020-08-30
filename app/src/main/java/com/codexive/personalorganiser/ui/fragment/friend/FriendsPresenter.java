@@ -32,7 +32,6 @@ public class FriendsPresenter<V extends FriendsMvpView> extends BasePresenter<V>
             public void accept(List<FriendModel> friendModels) throws Exception {
                 getMvpView().hideLoading();
                 if(!friendModels.isEmpty()){
-                    Log.e("workingsdf", "accept: " );
                     getMvpView().sucessToAdmit(friendModels);
                 }else {
                     getMvpView().unSucessToAdmit("No data Found!!");

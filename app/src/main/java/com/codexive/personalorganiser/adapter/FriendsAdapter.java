@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.codexive.personalorganiser.R;
 import com.codexive.personalorganiser.custom.CustomImageView;
 import com.codexive.personalorganiser.data.db.models.FriendModel;
+import com.codexive.personalorganiser.ui.activity.friend.FriendActivity;
 
 import java.util.List;
 
@@ -42,6 +43,15 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         holder.tvName.setText(getName(position));
         holder.tvGender.setText(getGender(position));
         holder.tvLocation.setText(getLocation(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(FriendActivity.getStartIntent(context).putExtra("condition",context.getString(R.string.updated))
+                        .putExtra("firstname",list.get(position).getFirstName()).putExtra("lastname",list.get(position).getLastName())
+                        .putExtra("gender",getGender(position)).putExtra("location",getLocation(position))
+                        .putExtra("age",list.get(position).getAge()).putExtra("id",list.get(position).getId()));
+            }
+        });
     }
 
     @Override
@@ -51,6 +61,10 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
 
     public void setData(List<FriendModel> list) {
         this.list = list;
+        notifyDataSetChanged();
+    }
+    public void clearData() {
+        list.clear();
         notifyDataSetChanged();
     }
     private String getName(int pos) {

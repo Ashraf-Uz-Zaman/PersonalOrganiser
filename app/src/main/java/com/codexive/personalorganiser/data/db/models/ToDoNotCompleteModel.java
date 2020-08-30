@@ -11,39 +11,15 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Property;
 
 
-@Entity(nameInDb = "todo_model")
-public class ToDoModel {
-
-    @SerializedName("id")
-    @Expose
-    @Id
-    @Property(nameInDb = "id")
+public class ToDoNotCompleteModel {
     private Long id;
-
-    @ColumnInfo(name = "todo_taskName")
-    @SerializedName("todo_taskName")
-    @Expose
-    @Property(nameInDb = "todo_taskName")
     String todo_taskName;
-    @ColumnInfo(name = "todo_location")
-    @SerializedName("todo_location")
-    @Expose
-    @Property(nameInDb = "todo_location")
     String todo_location;
-    @ColumnInfo(name = "todo_date")
-    @SerializedName("todo_date")
-    @Expose
-    @Property(nameInDb = "todo_date")
     String todo_date;
-    @ColumnInfo(name = "todo_status")
-    @SerializedName("todo_status")
-    @Expose
-    @Property(nameInDb = "Expose")
     boolean todo_status;
 
-    @Generated(hash = 195639005)
-    public ToDoModel(Long id, String todo_taskName, String todo_location, String todo_date,
-            boolean todo_status) {
+    public ToDoNotCompleteModel(Long id, String todo_taskName, String todo_location, String todo_date,
+                                boolean todo_status) {
         this.id = id;
         this.todo_taskName = todo_taskName;
         this.todo_location = todo_location;
@@ -51,8 +27,7 @@ public class ToDoModel {
         this.todo_status = todo_status;
     }
 
-    @Generated(hash = 219259818)
-    public ToDoModel() {
+    public ToDoNotCompleteModel() {
     }
 
     public String getTaskName() {
