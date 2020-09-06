@@ -27,7 +27,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 import butterknife.Unbinder;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public abstract class BaseActivity extends AppCompatActivity implements MvpView, BaseFragment.Callback {
     private KProgressHUD mProgressDialog;
@@ -55,7 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @TargetApi(Build.VERSION_CODES.M)

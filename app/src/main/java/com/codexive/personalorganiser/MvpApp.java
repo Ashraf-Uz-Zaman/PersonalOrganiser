@@ -12,7 +12,8 @@ import com.codexive.personalorganiser.di.module.ApplicationModule;
 
 import javax.inject.Inject;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import io.github.inflationx.viewpump.ViewPump;
+
 
 //import com.codexive.personalorganiser.di.component.DaggerApplicationComponent;
 
@@ -21,7 +22,7 @@ public class MvpApp extends Application {
     @Inject
     DataManager mDataManager;
     @Inject
-    CalligraphyConfig mCalligraphyConfig;
+    ViewPump mCalligraphyConfig;
 
     private ApplicationComponent mApplicationComponent;
 
@@ -41,7 +42,7 @@ public class MvpApp extends Application {
             AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
         }
 
-        CalligraphyConfig.initDefault(mCalligraphyConfig);
+        ViewPump.init(mCalligraphyConfig);
     }
 
     public ApplicationComponent getComponent() {

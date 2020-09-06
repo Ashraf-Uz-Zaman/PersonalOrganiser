@@ -75,7 +75,8 @@ dependencies {
     implementation "com.github.smarteist:autoimageslider:$rootProject.autoimageslider"
 
     // font
-    implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
 
     //progress bar
     implementation 'com.kaopiz:kprogresshud:1.2.0'
