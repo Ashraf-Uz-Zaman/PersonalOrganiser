@@ -4,10 +4,12 @@ import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.codexive.personalorganiser.adapter.EventAdapter;
 import com.codexive.personalorganiser.adapter.FriendsAdapter;
 import com.codexive.personalorganiser.adapter.GalleryAdapter;
 import com.codexive.personalorganiser.adapter.ToDoCompleteAdapter;
 import com.codexive.personalorganiser.adapter.ToDoNotCompleteAdapter;
+import com.codexive.personalorganiser.data.db.models.EventModel;
 import com.codexive.personalorganiser.data.db.models.FriendModel;
 import com.codexive.personalorganiser.data.db.models.ToDoCompleteModel;
 import com.codexive.personalorganiser.data.db.models.ToDoNotCompleteModel;
@@ -18,6 +20,9 @@ import com.codexive.personalorganiser.ui.activity.friend.FriendPresenter;
 import com.codexive.personalorganiser.ui.activity.todo.ToDosMvpPresenter;
 import com.codexive.personalorganiser.ui.activity.todo.ToDosMvpView;
 import com.codexive.personalorganiser.ui.activity.todo.ToDosPresenter;
+import com.codexive.personalorganiser.ui.fragment.event.EventMvpPresenter;
+import com.codexive.personalorganiser.ui.fragment.event.EventMvpView;
+import com.codexive.personalorganiser.ui.fragment.event.EventPresenter;
 import com.codexive.personalorganiser.ui.fragment.friend.FriendsMvpPresenter;
 import com.codexive.personalorganiser.ui.fragment.friend.FriendsMvpView;
 import com.codexive.personalorganiser.ui.fragment.friend.FriendsPresenter;
@@ -88,6 +93,13 @@ public class ActivityModule {
             ToDosPresenter<ToDosMvpView> presenter) {
         return presenter;
     }
+
+    @Provides
+    EventMvpPresenter<EventMvpView> provideEventMvpPresenter(
+            EventPresenter<EventMvpView> presenter) {
+        return presenter;
+    }
+
     // Presenter Activity
 //    @Provides
 //    @PerActivity
@@ -118,6 +130,11 @@ public class ActivityModule {
     @Provides
     ToDoCompleteAdapter provideToDoCompleteAdapter() {
         return new ToDoCompleteAdapter(mActivity, new ArrayList<ToDoCompleteModel>());
+    }
+
+    @Provides
+    EventAdapter provideEventAdapter() {
+        return new EventAdapter(mActivity, new ArrayList<EventModel>());
     }
 
 }
